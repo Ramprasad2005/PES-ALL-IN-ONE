@@ -440,47 +440,91 @@ h3 {
   gap: 18px;
 }
 
-.food-grid {
+.food-grid,
+.book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
 }
 
-.food-card {
-  display: grid;
-  gap: 18px;
-  min-height: 370px;
-  padding: 24px;
+.food-card,
+.book-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 14px;
   background: #fff;
-  box-shadow: 0 18px 46px rgba(16, 35, 38, 0.08);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  box-shadow: 0 10px 32px rgba(16, 35, 38, 0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .food-card:hover,
 .book-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(13, 124, 117, 0.24);
-  box-shadow: 0 24px 58px rgba(16, 35, 38, 0.13);
+  border-color: rgba(13, 124, 117, 0.3);
+  box-shadow: 0 20px 48px rgba(16, 35, 38, 0.12);
 }
 
-.food-icon {
-  display: grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 8px;
+.food-media,
+.book-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #edf3f0;
+}
+
+.food-img,
+.book-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.food-card:hover .food-img,
+.book-card:hover .book-img {
+  transform: scale(1.05);
+}
+
+.food-badge,
+.book-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: rgba(16, 35, 38, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #fff;
-  background: linear-gradient(135deg, var(--coral), var(--sun));
-  font-size: 0.86rem;
-  font-weight: 900;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.food-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 16px;
+}
+
+.food-body > div:first-child {
+  display: grid;
+  gap: 6px;
 }
 
 .food-card p:not(.subject) {
   margin-bottom: 0;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.55;
+  font-size: 0.94rem;
 }
 
 .food-card label {
@@ -496,76 +540,54 @@ h3 {
 
 .food-serving {
   width: 100%;
-  min-height: 46px;
-  padding: 0 12px;
+  min-height: 48px;
+  padding: 0 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
   color: var(--ink);
   background: #fff;
-  font: inherit;
-  font-weight: 800;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
   text-transform: none;
   letter-spacing: 0;
   transition: border-color 160ms ease, box-shadow 160ms ease;
+  cursor: pointer;
 }
 
 .food-serving:hover,
 .food-serving:focus {
-  border-color: rgba(13, 124, 117, 0.44);
-  box-shadow: 0 0 0 4px rgba(13, 124, 117, 0.08);
-}
-
-.book-card {
-  display: grid;
-  grid-template-rows: 13px 1fr;
-  min-height: 360px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 18px 46px rgba(16, 35, 38, 0.08);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.book-color {
-  width: 100%;
-}
-
-.pharmacology {
-  background: var(--teal);
-}
-
-.microbiology {
-  background: var(--coral);
-}
-
-.pathology {
-  background: var(--blue);
+  border-color: rgba(13, 124, 117, 0.5);
+  box-shadow: 0 0 0 4px rgba(13, 124, 117, 0.1);
+  outline: none;
 }
 
 .book-details {
   display: flex;
   flex-direction: column;
-  padding: 28px;
+  flex: 1;
+  padding: 20px;
+  gap: 12px;
 }
 
 .subject {
   width: fit-content;
-  margin-bottom: 20px;
-  padding: 8px 10px;
-  border-radius: 8px;
+  margin-bottom: 0;
+  padding: 6px 10px;
+  border-radius: 6px;
   color: var(--ink);
   background: var(--mint);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 }
 
 .book-details > p:last-of-type {
-  margin-bottom: 24px;
+  margin-bottom: 0;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.55;
+  font-size: 0.94rem;
 }
 
 .book-buy-row {
@@ -574,7 +596,7 @@ h3 {
   justify-content: space-between;
   gap: 12px;
   margin-top: auto;
-  padding-top: 22px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 
@@ -901,37 +923,67 @@ h3 {
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 680px) {
   .site-header {
-    align-items: stretch;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 10px;
-    padding-inline: 14px;
+    padding: 10px 14px;
+    min-height: 58px;
   }
 
   .brand {
-    justify-content: space-between;
-    width: 100%;
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 0.78rem;
+  }
+
+  .brand span:last-child {
+    font-size: 0.92rem;
   }
 
   .nav-actions {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.84rem;
   }
 
-  .nav-actions a {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .nav-actions:not(:has(.nav-button)) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .nav-actions a:not(.nav-button) {
+    padding: 6px 8px;
   }
 
   .nav-button {
-    min-height: 40px;
-    padding: 0 10px;
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+  }
+
+  .food-grid,
+  .book-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .food-media,
+  .book-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .food-card {
+    padding: 0;
+  }
+
+  .food-body,
+  .book-details {
+    padding: 16px;
+    gap: 12px;
   }
 
   .hero-actions,
@@ -955,11 +1007,6 @@ h3 {
     font-size: clamp(2rem, 11vw, 3.1rem);
   }
 
-  .book-card,
-  .food-card {
-    min-height: auto;
-  }
-
   .book-buy-row {
     align-items: stretch;
     flex-direction: column;
@@ -967,10 +1014,22 @@ h3 {
 
   .cart-button {
     width: 100%;
+    min-height: 48px;
+  }
+
+  .cart-panel {
+    padding: 18px;
+  }
+
+  .cart-checkout {
+    width: 100%;
+    min-height: 50px;
   }
 
   .site-footer {
     display: grid;
+    gap: 8px;
+    text-align: center;
   }
 }
 
@@ -978,27 +1037,41 @@ h3 {
   .hero,
   .landing-hero,
   .page-hero {
-    padding-top: 42px;
-    padding-bottom: 68px;
+    padding-top: 36px;
+    padding-bottom: 54px;
   }
 
   h1 {
-    font-size: clamp(2.8rem, 15vw, 4.2rem);
+    font-size: clamp(2.4rem, 13vw, 3.8rem);
   }
 
   .hero-copy,
   .section-copy {
-    font-size: 1rem;
+    font-size: 0.94rem;
   }
 
   .catalog-section,
   .site-footer {
-    width: min(100% - 28px, 1120px);
+    width: min(100% - 24px, 1120px);
   }
 
-  .food-card,
+  .food-card {
+    padding: 0;
+  }
+
+  .food-body,
   .book-details,
   .cart-panel {
-    padding: 20px;
+    padding: 14px;
+  }
+
+  .cart-items li {
+    padding: 8px 10px;
+    font-size: 0.88rem;
+  }
+
+  .cart-item-remove {
+    padding: 4px 8px;
+    font-size: 0.72rem;
   }
 }
