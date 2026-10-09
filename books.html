@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALL IN ONE | MBBS Books</title>
+    <meta
+      name="description"
+      content="Second-year MBBS books: KD Tripathi, Apurba Sastry, and Robbins. Book through WhatsApp."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="books">
+    <header class="site-header" aria-label="ALL IN ONE books header">
+      <a class="brand" href="index.html" aria-label="ALL IN ONE home">
+        <span class="brand-mark">A1</span>
+        <span>ALL IN ONE</span>
+      </a>
+      <nav class="nav-actions" aria-label="Primary pages">
+        <a href="food.html">Food</a>
+        <a class="active" href="books.html">Books</a>
+        <a class="nav-button js-whatsapp-link" href="#">WhatsApp</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero page-hero" aria-label="Books hero">
+        <img
+          class="hero-image"
+          src="assets/medico-books-hero.png"
+          alt="A neat study desk with stacked medical textbooks and a stethoscope"
+        />
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">2nd-Year MBBS Books</p>
+          <h1>Books</h1>
+          <p class="hero-copy">
+            Excellent-condition medical textbooks. Buy one book for ₹1200, or get all three for ₹3000.
+          </p>
+          <div class="hero-price" aria-label="Book prices">
+            <span class="price">₹1200 each</span>
+            <span class="compare">All 3 books for ₹3000</span>
+          </div>
+          <div class="hero-actions">
+            <a class="primary-action" href="#books-menu">View Books</a>
+            <a class="secondary-action js-whatsapp-link" href="#">Ask on WhatsApp</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="books-menu" aria-labelledby="books-title">
+        <div class="section-heading">
+          <p class="eyebrow">Book Section</p>
+          <h2 id="books-title">Medical Books Included</h2>
+          <p class="section-copy">Standard books for MBBS and useful for competitive exam preparation.</p>
+        </div>
+
+        <div class="book-grid">
+          <article class="book-card">
+            <div class="book-color pharmacology" aria-hidden="true"></div>
+            <div class="book-details">
+              <p class="subject">Pharmacology</p>
+              <h3>KD Tripathi</h3>
+              <p>Includes the MCQ book, ideal for quick review and exam practice.</p>
+              <div class="book-buy-row">
+                <span class="book-price">₹1200</span>
+                <button class="cart-button js-cart-toggle" type="button" data-book-id="kd-tripathi">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-color microbiology" aria-hidden="true"></div>
+            <div class="book-details">
+              <p class="subject">Microbiology</p>
+              <h3>Apurba Sastry</h3>
+              <p>A standard microbiology text for second-year MBBS study.</p>
+              <div class="book-buy-row">
+                <span class="book-price">₹1200</span>
+                <button class="cart-button js-cart-toggle" type="button" data-book-id="apurba-sastry">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card">
+            <div class="book-color pathology" aria-hidden="true"></div>
+            <div class="book-details">
+              <p class="subject">Pathology</p>
+              <h3>Robbins</h3>
+              <p>Comes with Pathology at a Glance for fast revision support.</p>
+              <div class="book-buy-row">
+                <span class="book-price">₹1200</span>
+                <button class="cart-button js-cart-toggle" type="button" data-book-id="robbins">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="cart-panel" aria-label="Books cart summary">
+          <div>
+            <div class="cart-header-row">
+              <p class="cart-label">Book Cart</p>
+              <button type="button" class="cart-clear-btn" id="cart-clear-btn" style="display: none;" aria-label="Clear all books">Clear all</button>
+            </div>
+            <h3 id="cart-title">No books selected yet</h3>
+            <p class="cart-note" id="cart-note">Add any book for ₹1200, or all 3 books for ₹3000.</p>
+            <ul class="cart-items" id="cart-items"></ul>
+          </div>
+          <div class="cart-total" aria-live="polite">
+            <span id="cart-total-label">Books Total</span>
+            <strong id="cart-total">₹0</strong>
+          </div>
+          <a class="cart-checkout js-whatsapp-link" href="#" aria-disabled="true">Checkout on WhatsApp</a>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>ALL IN ONE</span>
+      <span>Second-year MBBS book booking</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
